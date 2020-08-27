@@ -121,7 +121,7 @@ if CLIENT then
 		self.TopBar:Dock(TOP)
 		self.TopBar:SetTall(40)
 
-		self.BackButton = generatebutton("< Back")
+		self.BackButton = generatebutton("< "..translate.Get("back"))
 		self.BackButton:SetParent(self.TopBar)
 		self.BackButton:SizeToContents()
 		self.BackButton:Dock(LEFT)
@@ -347,7 +347,7 @@ if CLIENT then
 		end
 
 		if self.Menu.CurrentReadyButtonFunc ~= 0 then
-			self:SetText("[No valid action]")
+			self:SetText(translate.Get("no_action"))
 			self:SetDisabled(true)
 		end
 	end
@@ -355,16 +355,16 @@ if CLIENT then
 	function PANEL:GetConfig() return self.ConfigPanel:GetConfig() end
 
 	local countdowntextstates = {
-		[ROUND_PREPARING] = "Prepare",
-		[ROUND_ONGOING] = "Ongoing",
-		[ROUND_GAMEOVER] = "GAME OVER"
+		[ROUND_PREPARING] = translate.Get("prepare"),
+		[ROUND_ONGOING] = translate.Get("ongoing"),
+		[ROUND_GAMEOVER] = translate.Get("game_over")
 	}
 	local countdownsound = Sound("nzu/menu/countdown.wav")
 	local function countdownthink(s)
 		local state = nzu.Round:GetState()
 		if s.State ~= state then
 			if countdowntextstates[state] then
-				s:SetText("GAME ACTIVE - ["..countdowntextstates[state].."]")
+				s:SetText(translate.Format("game_active", countdowntextstates[state]))
 			end
 
 			local old = s.State
@@ -383,7 +383,7 @@ if CLIENT then
 				local diff = math.ceil(nzu.Round.GameStart - CurTime())
 				if diff >= 0 then
 					if diff ~= s.LastCountdown then
-						s:SetText("GAME STARTING - [Spawn in "..(diff > 0 and diff or 0).."...]")
+						s:SetText(translate.Get("game_starting").." "..(diff > 0 and diff or 0).."...]")
 						s.LastCountdown = diff
 
 						-- Play UI sound
@@ -440,7 +440,7 @@ if CLIENT then
 
 		self.CloseButton.Text = self.CloseButton:Add("DLabel")
 		self.CloseButton.Text:Dock(FILL)
-		self.CloseButton.Text:SetText("Close")
+		self.CloseButton.Text:SetText(translate.Get("close"))
 		self.CloseButton.Text:SetFont("Trebuchet24")
 		self.CloseButton.Text:SetContentAlignment(5)
 		self.CloseButton.Text:DockMargin(0,3,3,3)
@@ -470,7 +470,7 @@ if CLIENT then
 		self.ConfigPanel:Dock(BOTTOM)
 		self.ConfigPanel:SetMaintainAspectRatio(true)
 		self.ConfigPanel:DockMargin(0,35,0,0)
-		self.ConfigPanel:SetNoConfigAuthors("Use the Load Configs menu to select a Config to load.")
+		self.ConfigPanel:SetNoConfigAuthors(translate.Get("use_config_load"))
 
 		self.RightSide = self:Add("DDragBase")
 		self.RightSide:Dock(RIGHT)
@@ -482,23 +482,23 @@ if CLIENT then
 		self.PlayerIndicator:DockMargin(0,0,0,5)
 
 		self.PlayerIndicator.Model = self.PlayerIndicator:Add("DLabel")
-		self.PlayerIndicator.Model:SetText("Character")
+		self.PlayerIndicator.Model:SetText(translate.Get("character"))
 		self.PlayerIndicator.Model:DockMargin(0,0,0,0)
 		self.PlayerIndicator.Model:SetContentAlignment(5)
 		self.PlayerIndicator.Model:Dock(LEFT)
 
 		self.PlayerIndicator.Name = self.PlayerIndicator:Add("DLabel")
-		self.PlayerIndicator.Name:SetText("Name")
+		self.PlayerIndicator.Name:SetText(translate.Get("name"))
 		self.PlayerIndicator.Name:SetContentAlignment(5)
 		self.PlayerIndicator.Name:Dock(FILL)
 
 		self.PlayerIndicator.Ping = self.PlayerIndicator:Add("DLabel")
-		self.PlayerIndicator.Ping:SetText("Ping")
+		self.PlayerIndicator.Ping:SetText(translate.Get("ping"))
 		self.PlayerIndicator.Ping:SetContentAlignment(5)
 		self.PlayerIndicator.Ping:Dock(RIGHT)
 
 		self.PlayerIndicator.Mute = self.PlayerIndicator:Add("DLabel")
-		self.PlayerIndicator.Mute:SetText("Mute")
+		self.PlayerIndicator.Mute:SetText(translate.Get("mute"))
 		self.PlayerIndicator.Mute:SetContentAlignment(5)
 		self.PlayerIndicator.Mute:Dock(RIGHT)
 
@@ -533,10 +533,10 @@ if CLIENT then
 		self.ReadyButton.Menu = self
 		self.ReadyButton.Think = thinkreadybutton
 
-		self:AddReadyButtonFunction("Unspawn", 1000, function() return nzu.Round:GetState() ~= ROUND_GAMEOVER and not LocalPlayer():IsUnspawned() end, nzu.Unready)
-		self:AddReadyButtonFunction("Unready", 100, function() return LocalPlayer():IsReady() end, nzu.Unready)
-		self:AddReadyButtonFunction("Ready", 50, function() return nzu.CurrentConfig and nzu.Round:GetState() == ROUND_WAITING end, nzu.Ready)
-		self:AddReadyButtonFunction("Spawn In", 40, function() return nzu.CurrentConfig and nzu.Round:GetState() ~= ROUND_GAMEOVER end, nzu.Ready)
+		self:AddReadyButtonFunction(translate.Get("unspawn"), 1000, function() return nzu.Round:GetState() ~= ROUND_GAMEOVER and not LocalPlayer():IsUnspawned() end, nzu.Unready)
+		self:AddReadyButtonFunction(translate.Get("unready"), 100, function() return LocalPlayer():IsReady() end, nzu.Unready)
+		self:AddReadyButtonFunction(translate.Get("ready"), 50, function() return nzu.CurrentConfig and nzu.Round:GetState() == ROUND_WAITING end, nzu.Ready)
+		self:AddReadyButtonFunction(translate.Get("spawn_in"), 40, function() return nzu.CurrentConfig and nzu.Round:GetState() ~= ROUND_GAMEOVER end, nzu.Ready)
 
 		self.PlayerList.Think = function(s)
 			local plys = player.GetAll()
@@ -589,13 +589,13 @@ if CLIENT then
 			local frame = vgui.Create("DFrame")
 			frame:SetSkin("nZombies Unlimited")
 			frame:SetBackgroundBlur(true)
-			frame:SetTitle("Discord Link")
+			frame:SetTitle(translate.Get("discord_link"))
 			frame:SetDeleteOnClose(true)
 			frame:ShowCloseButton(true)
 			frame:SetSize(300, 120)
 
 			local lbl = frame:Add("DLabel")
-			lbl:SetText("Click to copy to clipboard")
+			lbl:SetText(translate.Get("click_to_copy"))
 			lbl:Dock(TOP)
 			lbl:SetContentAlignment(5)
 
@@ -605,7 +605,7 @@ if CLIENT then
 			txt:SetContentAlignment(5)
 			txt.DoClick = function(s)
 				SetClipboardText(link)
-				lbl:SetText("Copied!")
+				lbl:SetText(translate.Get("copied"))
 				lbl:SetTextColor(Color(0,255,0))
 				s:KillFocus()
 			end
@@ -613,7 +613,7 @@ if CLIENT then
 			txt.Paint = function(s,w,h) sk.tex.TextBox( 0, 0, w, h ) end
 
 			local but = frame:Add("DButton")
-			but:SetText("Open in Steam Overlay")
+			but:SetText(translate.Get("steam_overlay"))
 			but:Dock(BOTTOM)
 			but:SetTall(25)
 			but:DockMargin(30,0,30,0)
@@ -639,7 +639,7 @@ if CLIENT then
 		self.RightSideControls:DockPadding(10,10,10,10)
 
 		local mus = self.RightSideControls:Add("DCheckBoxLabel")
-		mus:SetText("Music")
+		mus:SetText(translate.Get("music"))
 		mus:Dock(RIGHT)
 		mus:SetContentAlignment(5)
 		mus:SetWide(50)

@@ -1,10 +1,10 @@
 local columns = {
-	{Text = "Ping", Get = function(ply) return ply:Ping() end, Order = 0},
-	--{Text = "Headshots", Get = function(ply) return ply:Ping() end, Order = 10},
-	{Text = "Revives", Get = function(ply) return ply:GetNumRevives() end, Order = 20},
-	{Text = "Downs", Get = function(ply) return ply:GetNumDowns() end, Order = 30},
-	{Text = "Kills", Get = function(ply) return ply:Frags() end, Order = 40},
-	{Text = "Score", Get = function(ply) return ply:GetPoints() end, Width = 200, Order = 50},
+	{Text = translate.Get("ping"), Get = function(ply) return ply:Ping() end, Order = 0},
+	--{Text = translate.Get("headshots"), Get = function(ply) return ply:Ping() end, Order = 10},
+	{Text = translate.Get("revives"), Get = function(ply) return ply:GetNumRevives() end, Order = 20},
+	{Text = translate.Get("downs"), Get = function(ply) return ply:GetNumDowns() end, Order = 30},
+	{Text = translate.Get("kills"), Get = function(ply) return ply:Frags() end, Order = 40},
+	{Text = translate.Get("score"), Get = function(ply) return ply:GetPoints() end, Width = 200, Order = 50},
 }
 
 --[[
@@ -151,7 +151,7 @@ local SCOREBOARD = {
 		self.ConfigName:Dock(FILL)
 		self.ConfigName:DockMargin(5,5,5,5)
 		self.ConfigName:SetFont(font)
-		self.ConfigName:SetText("No Config Loaded")
+		self.ConfigName:SetText(translate.Get("no_config"))
 
 		self.Lines = self:Add("DScrollPanel")
 		self.Lines:Dock(FILL)
@@ -217,14 +217,14 @@ local gameoverpanelfunc = function()
 	local txt = p:Add("DLabel")
 	txt:SetFont("nzu_Font_Bloody_Biggest")
 	txt:SetTextColor(Color(150,0,0))
-	txt:SetText("GAME OVER")
+	txt:SetText(translate.Get("game_over"))
 	txt:SetContentAlignment(5)
 	txt:Dock(FILL)
 	txt:DockMargin(0,0,0,-50)
 
 	local r = p:Add("DLabel")
 	r:SetFont("nzu_Font_Bloody_Large")
-	r:SetText(nzu.Round:GetRound() == 1 and "You survived 1 round." or "You survived "..(nzu.Round:GetRound() or 0).." rounds.")
+	r:SetText(nzu.Round:GetRound() == 1 and translate.Get("round_survived_1") or translate.Get("you_survived").." "..(nzu.Round:GetRound() or 0).." "..translate.Get("rounds"))
 	r:SetTextColor(Color(150,0,0))
 	r:SetContentAlignment(5)
 	r:Dock(BOTTOM)

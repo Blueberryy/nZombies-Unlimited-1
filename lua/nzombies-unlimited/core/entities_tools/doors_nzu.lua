@@ -467,7 +467,7 @@ if CLIENT then
 				end
 
 				tbl.TargetIDType = TARGETID_TYPE_USECOST
-				tbl.Text = " clear debris "
+				tbl.Text = " "..translate.Get("clear_debris").." "
 			end
 
 			if IsValid(ent) then
@@ -500,7 +500,7 @@ if CLIENT then
 		end
 
 		tbl.TargetIDType = TARGETID_TYPE_USECOST
-		tbl.Text = " clear debris "
+		tbl.Text = " "..translate.Get("clear_debris").." "
 
 		local num = net.ReadUInt(32)
 		for i = 1, num do

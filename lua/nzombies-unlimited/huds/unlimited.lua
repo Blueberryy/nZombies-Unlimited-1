@@ -222,9 +222,9 @@ function HUD:Paint_Round()
 			end
 
 			surface.SetFont(roundfont)
-			local x,y = surface.GetTextSize("Round")
+			local x,y = surface.GetTextSize(translate.Get("round"))
 			surface.SetTextPos(ScrW()/2 - x/2, ScrH()/2 - y)
-			surface.DrawText("Round")
+			surface.DrawText(translate.Get("round"))
 
 			surface.SetMaterial(tallymats[1])
 			--surface.DrawTexturedRectUV(75, ScrH() - 175, tallysize, invpct2*tallysize, 0,0,1, invpct2)
@@ -903,15 +903,15 @@ end
 
 -- These are the base gamemode ones: Use, UseCost, Buy, Player, NoElectricity
 function HUD:DrawTargetIDUse(str, ent, val)
-	self:DrawTargetID("Press E to "..str)
+	self:DrawTargetID(translate.Format("press_e_to_use", str))
 end
 
 function HUD:DrawTargetIDUseCost(str, ent, val)
-	self:DrawTargetID("Press E to "..str.." for "..val)
+	self:DrawTargetID(translate.Format("press_e_to_use_x", str, val))
 end
 
 function HUD:DrawTargetIDBuy(str, ent, val)
-	self:DrawTargetID("Press E to buy "..str.." for "..val)
+	self:DrawTargetID(translate.Format("press_e_to_buy_x", str, val))
 end
 
 function HUD:DrawTargetIDPlayer(str, ent, val)
@@ -919,11 +919,11 @@ function HUD:DrawTargetIDPlayer(str, ent, val)
 end
 
 function HUD:DrawTargetIDNoElectricity(str, ent, val)
-	self:DrawTargetID("Requires Electricity")
+	self:DrawTargetID(translate.Get("requires_electricity"))
 end
 
 function HUD:DrawTargetIDPickUp(str, ent, val)
-	self:DrawTargetID("Press E to pick up "..str)
+	self:DrawTargetID(translate.Format("press_e_to_pickup_x", str))
 end
 
 -- For weapons, the value is the weapon class. We just use Pick Up formatting though
@@ -1272,14 +1272,14 @@ function HUD:GameOverPanel()
 	local txt = p:Add("DLabel")
 	txt:SetFont("nzu_Font_Bloody_Biggest")
 	txt:SetTextColor(Color(150,0,0))
-	txt:SetText("GAME OVER")
+	txt:SetText(translate.Get("game_over"))
 	txt:SetContentAlignment(5)
 	txt:Dock(FILL)
 	txt:DockMargin(0,0,0,-50)
 
 	local r = p:Add("DLabel")
 	r:SetFont("nzu_Font_Bloody_Large")
-	r:SetText(nzu.Round:GetRound() == 1 and "You survived 1 round." or "You survived "..(nzu.Round:GetRound() or 0).." rounds.")
+	r:SetText(nzu.Round:GetRound() == 1 and translate.Get("round_survived_1") or translate.Get("you_survived").." "..(nzu.Round:GetRound() or 0).." "..translate.Get("rounds"))
 	r:SetTextColor(Color(150,0,0))
 	r:SetContentAlignment(5)
 	r:Dock(BOTTOM)

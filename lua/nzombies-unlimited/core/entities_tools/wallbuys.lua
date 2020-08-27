@@ -194,7 +194,7 @@ if CLIENT then
 			if wep then
 				self.WeaponName = wep.PrintName
 			else
-				self.WeaponName = "UNKNOWN WEAPON"
+				self.WeaponName = translate.Get("unknown_weapon")
 			end
 			self.SavedClass = self:GetWeaponClass()
 		end
@@ -271,15 +271,15 @@ nzu.RegisterMismatch("Wall Buys", {
 	end,
 	BuildPanel = function(parent, t)
 		local dlist = vgui.Create("DListView", parent)
-		dlist:AddColumn("Invalid Wall Buy")
-		dlist:AddColumn("Replacement Weapon")
+		dlist:AddColumn(translate.Get("invalid_wall_buy"))
+		dlist:AddColumn(translate.Get("replacement_wall_buy"))
 
 		local weps = {}
 		for k,v in pairs(t) do
 			local ent = Entity(k)
 			local pnl = nzu.ExtensionSettingTypePanel("Weapon", parent)
 			pnl:SetValue(v)
-			dlist:AddLine(v .. " (".. (IsValid(ent) and ent:GetPrice() or "Can't get Price")..")", pnl):SetTall(100)
+			dlist:AddLine(v .. " (".. (IsValid(ent) and ent:GetPrice() or translate.Get("cant_get_price"))..")", pnl):SetTall(100)
 
 			weps[k] = pnl
 		end

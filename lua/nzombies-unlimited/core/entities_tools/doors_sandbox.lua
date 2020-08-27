@@ -400,7 +400,7 @@ properties.Add("nzu_DoorLock", {
 
 		local save = bottom:Add("DButton")
 		save:Dock(LEFT)
-		save:SetText("Apply")
+		save:SetText(translate.Get("apply"))
 		save:SetWide(125)
 		save.DoClick = function()
 			self:MsgStart()

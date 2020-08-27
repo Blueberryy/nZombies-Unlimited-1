@@ -15,7 +15,7 @@ if CLIENT then
 		end
 		
 		local l = vgui.Create("nzu_ConfigList")
-		local sub = menu:AddPanel("Load Config ...", 3, l, true)
+		local sub = menu:AddPanel(translate.Get("load_config").." ...", 3, l, true)
 		l:Dock(FILL)
 		l:SetPaintBackground(true)
 		l:SetSelectable(true)
@@ -25,26 +25,26 @@ if CLIENT then
 		-- Access the config in Sandbox!
 		local sand = sub:GetTopBar():Add("DButton")
 		sand:Dock(RIGHT)
-		sand:SetText("Edit Config in Sandbox")
+		sand:SetText(translate.Get("edit_selected_sandbox"))
 		sand:SetWide(120)
 		sand:DockMargin(0,10,0,0)
 		sand:SetEnabled(menu:GetConfig() and true or false)
 		sand.DoClick = function()
-			Derma_Query("Are you sure you want to change to SANDBOX?", "Mode change confirmation", "Change gamemode", function()
+			Derma_Query(translate.Get("are_you_sure"), translate.Get("mode_confirmation"), translate.Get("change_gamemode"), function()
 				if menu:GetConfig() then
 					nzu.RequestEditConfig(menu:GetConfig())
 				end
-			end, "Cancel"):SetSkin("nZombies Unlimited")
+			end, translate.Get("cancel")):SetSkin("nZombies Unlimited")
 		end
 
 		-- Access the config in Sandbox!
 		local sand2 = sub:GetTopBar():Add("DButton")
 		sand2:Dock(RIGHT)
-		sand2:SetText("Switch to Sandbox")
+		sand2:SetText(translate.Get("switch_sandbox"))
 		sand2:SetWide(100)
 		sand2:DockMargin(0,10,10,0)
 		sand2.DoClick = function()
-			Derma_Query("Are you sure you want to change to SANDBOX?", "Mode change confirmation", "Change gamemode", nzu.RequestEditConfig, "Cancel"):SetSkin("nZombies Unlimited")
+			Derma_Query("Are you sure you want to change to SANDBOX?", "Mode change confirmation", "Change gamemode", nzu.RequestEditConfig, translate.Get("cancel")):SetSkin("nZombies Unlimited")
 		end
 
 		l.OnConfigClicked = function(s,cfg,pnl)
@@ -78,7 +78,7 @@ if CLIENT then
 			end
 		end
 
-		menu:AddReadyButtonFunction("Load Selected Config", 70, function()
+		menu:AddReadyButtonFunction(translate.Get("load_selected_config"), 70, function()
 			if menu:GetConfig() then
 				local cfg = menu:GetConfig()
 				return not nzu.CurrentConfig or cfg.Codename ~= nzu.CurrentConfig.Codename or cfg.Type ~= nzu.CurrentConfig.Type
