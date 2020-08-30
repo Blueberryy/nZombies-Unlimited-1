@@ -44,7 +44,7 @@ LANGUAGE.you_survived                = "Вы пережили"
 LANGUAGE.game_over                   = "ИГРА ОКОНЧЕНА"
 LANGUAGE.rounds                      = "раундов."
 LANGUAGE.round_starting              = "Начало раунда!"
-LANGUAGE.round_now_is                = "Раунд сейчас: %d"
+LANGUAGE.round_now_is                = "Раунд сейчас: %s"
 LANGUAGE.you_survived_over           = "ИГРА ОКОНЧЕНА! Вы пережили %s раундов."
 LANGUAGE.round                       = "Раунд"
 LANGUAGE.prepare                     = "Подготовка"
@@ -87,7 +87,7 @@ LANGUAGE.being_revived_by            = "Вас реанимирует игрок
 LANGUAGE.reviving                    = "Реанимируем игрока %s"
 
 -- Wall Buy
-LANGUAGE.press_e_to                  = "Нажмите E, чтобы %s"
+LANGUAGE.press_e_to_use              = "Нажмите E, чтобы %s"
 LANGUAGE.press_e_to_use_x            = "Нажмите E, чтобы %s за %s"
 LANGUAGE.press_e_to_buy_x            = "Нажмите E, чтобы купить %s за %s"
 LANGUAGE.press_e_to_pickup_x         = "Нажмите E, чтобы взять %s"
@@ -99,4 +99,7 @@ LANGUAGE.unknown_weapon              = "НЕИЗВЕСТНОЕ ОРУЖИЕ"
 LANGUAGE.repair_barricade            = "Починить баррикаду"
 
 -- Debris
-LANGUAGE.clear_debris                = "очистить развалины" --used with LANGUAGE.press_e_to string. Example: "Press E to clear debris"
+LANGUAGE.clear_debris                = " очистить развалины "
+
+-- Electricity
+LANGUAGE.turn_on_electricity         = "включить электричество"

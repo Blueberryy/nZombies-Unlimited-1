@@ -39,7 +39,7 @@ LANGUAGE.game_starting               = "GAME STARTING - [Spawn in"
 LANGUAGE.back                        = "Back"
 LANGUAGE.close                       = "Close"
 LANGUAGE.edit_selected_sandbox       = "Edit selected in Sandbox"
-LANGUAGE.are_you_sure                = "Are you sure you want to change to SANDBOX?"
+LANGUAGE.are_you_sure_sb             = "Are you sure you want to change to SANDBOX?"
 LANGUAGE.mode_confirmation           = "Mode change confirmation"
 LANGUAGE.change_gamemode             = "Change gamemode"
 LANGUAGE.rounds                      = "rounds."
@@ -56,7 +56,7 @@ LANGUAGE.round_survived_1            = "You survived 1 round."
 LANGUAGE.you_survived                = "You survived"
 LANGUAGE.game_over                   = "GAME OVER"
 LANGUAGE.round_starting              = "Round starting!"
-LANGUAGE.round_now_is                = "Round is now: %e"
+LANGUAGE.round_now_is                = "Round is now: %s"
 LANGUAGE.you_survived_over           = "GAME OVER! You survived %s rounds."
 LANGUAGE.round                       = "Round"
 LANGUAGE.prepare                     = "Prepare"
@@ -104,7 +104,7 @@ LANGUAGE.press_e_to_use_x            = "Press E to %s for %s"
 LANGUAGE.press_e_to_buy_x            = "Press E to buy %s for %s"
 LANGUAGE.press_e_to_pickup_x         = "Press E to pick up %s"
 LANGUAGE.requires_electricity        = "Requires Electricity"
-LANGUAGE.cant_get_price              = "Can't get Price"
+--LANGUAGE.cant_get_price              = "Can't get Price"
 LANGUAGE.unknown_weapon              = "UNKNOWN WEAPON"
 
 -- Barricade
@@ -112,3 +112,14 @@ LANGUAGE.repair_barricade            = "Repair Barricade"
 
 -- Debris
 LANGUAGE.clear_debris                = "clear debris" --used with LANGUAGE.press_e_to string. Example: "Press E to clear debris"
+
+-- Electricity
+LANGUAGE.turn_on_electricity         = "turn on Electricity" --used with LANGUAGE.press_e_to string. Example: "Press E to turn on Electricity"
+
+-- Mystery Box
+LANGUAGE.random_weapon               = "Random Weapon" --used with LANGUAGE.press_e_to_buy_x string. Example: "Press E to buy Random Weapon for 950"
+
+-- Spectate
+LANGUAGE.spectating_x                = "Spectating"
+LANGUAGE.spectate_help1              = "RMB"
+LANGUAGE.spectate_help2              = " LMB"

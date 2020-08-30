@@ -30,7 +30,7 @@ if CLIENT then
 		sand:DockMargin(0,10,0,0)
 		sand:SetEnabled(menu:GetConfig() and true or false)
 		sand.DoClick = function()
-			Derma_Query(translate.Get("are_you_sure"), translate.Get("mode_confirmation"), translate.Get("change_gamemode"), function()
+			Derma_Query(translate.Get("are_you_sure_sb"), translate.Get("mode_confirmation"), translate.Get("change_gamemode"), function()
 				if menu:GetConfig() then
 					nzu.RequestEditConfig(menu:GetConfig())
 				end
@@ -44,7 +44,7 @@ if CLIENT then
 		sand2:SetWide(100)
 		sand2:DockMargin(0,10,10,0)
 		sand2.DoClick = function()
-			Derma_Query("Are you sure you want to change to SANDBOX?", "Mode change confirmation", "Change gamemode", nzu.RequestEditConfig, translate.Get("cancel")):SetSkin("nZombies Unlimited")
+			Derma_Query(translate.Get("are_you_sure_sb"), translate.Get("mode_confirmation"), translate.Get("change_gamemode"), nzu.RequestEditConfig, translate.Get("cancel")):SetSkin("nZombies Unlimited")
 		end
 
 		l.OnConfigClicked = function(s,cfg,pnl)

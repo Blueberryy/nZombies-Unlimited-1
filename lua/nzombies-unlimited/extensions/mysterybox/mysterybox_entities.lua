@@ -531,7 +531,7 @@ else
 				if wep then
 					self.WeaponName = " "..wep.PrintName.." "
 				else
-					self.WeaponName = " UNKNOWN WEAPON "
+					self.WeaponName = " "..translate.Get("unknown_weapon").." "
 				end
 			else
 				self.WeaponName = nil

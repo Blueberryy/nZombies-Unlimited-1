@@ -236,7 +236,7 @@ if SERVER then
 		timer.Remove("nzu_Round_Prepare")
 		--timer.Stop("nzu_Round_Spawning")
 		self.Round = num
-	    PrintMessage(HUD_PRINTTALK, "Round is now: "..num)  		--PrintTranslatedMessage(HUD_PRINTTALK, "round_now_is", num)
+	    PrintTranslatedMessage(HUD_PRINTTALK, "round_now_is", num)
 		hook.Run("nzu_RoundChanged", num)
 
 		self:SpawnPlayers()

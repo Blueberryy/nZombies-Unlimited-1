@@ -393,7 +393,7 @@ else -- CLIENT
 	
 	function ENT:GetTargetIDText()
 		if self:GetIsReady() and not self:GetIsOpen() then
-			return "Buy", "Random Weapon",  self:GetPrice()
+			return "Buy", translate.Get("random_weapon"),  self:GetPrice()
 		end
 	end
 

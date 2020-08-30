@@ -227,13 +227,13 @@ function GM:nzu_GetTargetIDText(ent)
 end
 
 local generictypes = {
-	Use = "Press E to %s",
-	UseCost = "Press E to %s for %c",
-	Buy = "Press E to buy %s for %c",
-	NoElectricity = "Requires Electricity",
-	-- Player,
-	PickUp = "Press E to pick up %s",
-	Weapon = "Press E to pick up %s",
+    Use = "Press E to %s",
+    UseCost = "Press E to %s for %c",
+    Buy = "Press E to buy %s for %c",
+    NoElectricity = "Requires Electricity",
+    -- Player,
+    PickUp = "Press E to pick up %s",
+    Weapon = "Press E to pick up %s",
 }
 
 -- This hook translates a type, string, and value, into full text that will be put into the hook
@@ -241,7 +241,7 @@ local generictypes = {
 function GM:nzu_TranslateTargetID(ent, typ, str, val)
 	local inp = generictypes[typ]
 	if inp then
-		return string.format(inp, str, val)
+		return translate.Format
 	end
 	return str
 end

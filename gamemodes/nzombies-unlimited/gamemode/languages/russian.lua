@@ -27,7 +27,7 @@ LANGUAGE.game_starting               = "НАЧАЛО ИГРЫ - [Возрожд�
 LANGUAGE.back                        = "Назад"
 LANGUAGE.close                       = "Закрыть"
 LANGUAGE.edit_selected_sandbox       = "Реда-ть в Sandbox"
-LANGUAGE.are_you_sure                = "Вы уверены, что хотите сменить игровой режим на SANDBOX?"
+LANGUAGE.are_you_sure_sb             = "Вы уверены, что хотите сменить игровой режим на SANDBOX?"
 LANGUAGE.mode_confirmation           = "Подтверждение смены режима"
 LANGUAGE.change_gamemode             = "Сменить режим"
 LANGUAGE.switch_sandbox              = "Пр-кл на Sandbox"
@@ -44,7 +44,7 @@ LANGUAGE.you_survived                = "Вы пережили"
 LANGUAGE.game_over                   = "ИГРА ОКОНЧЕНА"
 LANGUAGE.rounds                      = "раундов."
 LANGUAGE.round_starting              = "Начало раунда!"
-LANGUAGE.round_now_is                = "Раунд сейчас: %e"
+LANGUAGE.round_now_is                = "Раунд сейчас: %s"
 LANGUAGE.you_survived_over           = "ИГРА ОКОНЧЕНА! Вы пережили %s раундов."
 LANGUAGE.round                       = "Раунд"
 LANGUAGE.prepare                     = "Подготовка"
@@ -87,16 +87,27 @@ LANGUAGE.being_revived_by            = "Вас реанимирует игрок
 LANGUAGE.reviving                    = "Реанимируем игрока %s"
 
 -- Wall Buy
-LANGUAGE.press_e_to                  = "Нажмите E, чтобы %s"
+LANGUAGE.press_e_to_use              = "Нажмите E, чтобы %s"
 LANGUAGE.press_e_to_use_x            = "Нажмите E, чтобы %s за %s"
 LANGUAGE.press_e_to_buy_x            = "Нажмите E, чтобы купить %s за %s"
 LANGUAGE.press_e_to_pickup_x         = "Нажмите E, чтобы взять %s"
 LANGUAGE.requires_electricity        = "Требуется электричество"
-LANGUAGE.cant_get_price              = "Невозможно получить цену"
+--LANGUAGE.cant_get_price              = "Невозможно получить цену"
 LANGUAGE.unknown_weapon              = "НЕИЗВЕСТНОЕ ОРУЖИЕ"
 
 -- Barricade
 LANGUAGE.repair_barricade            = "Починить баррикаду"
 
 -- Debris
-LANGUAGE.clear_debris                = "очистить развалины" --used with LANGUAGE.press_e_to string. Example: "Press E to clear debris"
+LANGUAGE.clear_debris                = "очистить развалины"
+
+-- Electricity
+LANGUAGE.turn_on_electricity         = "включить электричество"
+
+-- Mystery Box
+LANGUAGE.random_weapon               = "случайное оружие"
+
+-- Spectate
+LANGUAGE.spectating_x                = "Наблюдение за игроком"
+LANGUAGE.spectate_help1              = "ПКМ"
+LANGUAGE.spectate_help2              = " ЛКМ"

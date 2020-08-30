@@ -86,7 +86,7 @@ if CLIENT then
 
 		function ENT:GetTargetIDText()
 			if not self:HasElectricity() then
-				return "Use", "turn on Electricity"
+				return "Use", ""..translate.Get("turn_on_electricity")
 			end
 		end
 	else
